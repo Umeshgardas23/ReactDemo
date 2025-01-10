@@ -1,56 +1,64 @@
 import React from "react";
-import Item from "../components/Item";
-import "./Home.css"
-import "../components/Item.css";
-const Home = () => {
-  const data = [
-    {
-      id: 1,
-      img: "https://th.wallhaven.cc/small/ex/exmxpw.jpg",
-    },
-    {
-      id: 2,
-      img: "https://th.wallhaven.cc/small/yx/yxdvjx.jpg",
-    },
-    {
-      id: 3,
-      img: "https://th.wallhaven.cc/small/rr/rrl1kj.jpg",
-    },
-    {
-      id: 2,
-      img: "https://th.wallhaven.cc/small/yx/yxdvjx.jpg",
-    },
-    {
-      id: 3,
-      img: "https://th.wallhaven.cc/small/rr/rrl1kj.jpg",
-    },
-    {
-      id: 2,
-      img: "https://th.wallhaven.cc/small/yx/yxdvjx.jpg",
-    },
-    {
-      id: 3,
-      img: "https://th.wallhaven.cc/small/rr/rrl1kj.jpg",
-    },
-    {
-      id: 2,
-      img: "https://th.wallhaven.cc/small/yx/yxdvjx.jpg",
-    },
-    {
-      id: 3,
-      img: "https://th.wallhaven.cc/small/rr/rrl1kj.jpg",
-    },
-  ];
+class Home extends React.Component {
+  constructor() {
+    super();
+    this.state = {
+      heading: "Hello",
+      image: "https://th.wallhaven.cc/small/l8/l8x1pr.jpg",
+      loader: true,
+    };
+    console.log("Constructor called");
+  }
 
-  return (
-    <>
-      <div className="items">
-        {data.map((item) => {
-          return <Item key={item.id} image={item.img} />;
-        })}
-      </div>
-    </>
-  );
-};
+  getData = () => {
+    this.setState({
+      heading: "How are you",
+      image: "https://th.wallhaven.cc/small/6d/6dryw6.jpg",
+    });
+  };
+  // fetch some data from API ,external source
+  // Updating
+  ShouldComponentUpdate = () => {
+    return false;
+  };
 
+  getSnapshotBeforeUpdate = (prevProps, prevState) => {
+    console.log("PrevProps", prevProps);
+    console.log("PrevState", prevState);
+    return "Umesh";
+  };
+
+  ComponentDidUpdate = (prevProps, prevState, data) => {
+    console.log("PrevProps", prevProps);
+    console.log("PrevState", prevState);
+    console.log(data);
+  };
+
+  // Mounting
+  componentDidMount() {
+    console.log("componentDidMount called");
+  }
+
+  // Unmounting
+  componentWillUnmount = () => {
+    console.log("componentWillUnmount called");
+    this.setState({
+      heading: "Bye",
+    });
+  };
+
+  render() {
+    console.log("Render called");
+    return (
+      <>
+        <div>
+          {this.state.heading}
+
+          <img src={this.state.image} alt="Landscape" />
+          <button onClick={this.getData}>Click</button>
+        </div>
+      </>
+    );
+  }
+}
 export default Home;

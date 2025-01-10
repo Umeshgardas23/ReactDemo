@@ -70,3 +70,80 @@ add(kapil,vishwadip)
         })}
         <Data1 fullname={this.state.fullname} updateage={this.state.age} />
         <Data2 name={this.props.name} age={this.props.age} />
+
+
+// import React from "react";
+// import Item from "../components/Item";
+// import "./Home.css"
+// import "../components/Item.css";
+// const Home = () => {
+//   const data = [
+//     {
+//       id: 1,
+//       img: "https://th.wallhaven.cc/small/ex/exmxpw.jpg",
+//     },
+//     {
+//       id: 2,
+//       img: "https://th.wallhaven.cc/small/yx/yxdvjx.jpg",
+//     },
+//     {
+//       id: 3,
+//       img: "https://th.wallhaven.cc/small/rr/rrl1kj.jpg",
+//     },
+//     {
+//       id: 2,
+//       img: "https://th.wallhaven.cc/small/yx/yxdvjx.jpg",
+//     },
+//     {
+//       id: 3,
+//       img: "https://th.wallhaven.cc/small/rr/rrl1kj.jpg",
+//     },
+//     {
+//       id: 2,
+//       img: "https://th.wallhaven.cc/small/yx/yxdvjx.jpg",
+//     },
+//     {
+//       id: 3,
+//       img: "https://th.wallhaven.cc/small/rr/rrl1kj.jpg",
+//     },
+//     {
+//       id: 2,
+//       img: "https://th.wallhaven.cc/small/yx/yxdvjx.jpg",
+//     },
+//     {
+//       id: 3,
+//       img: "https://th.wallhaven.cc/small/rr/rrl1kj.jpg",
+//     },
+//   ];
+
+//   return (
+//     <>
+//       <div className="items">
+//         {data.map((item) => {
+//           return <Item key={item.id} image={item.img} />;
+//         })}
+//       </div>
+//     </>
+//   );
+// };
+
+        <!-- Life Cycle Methods -->
+        3 phases of react componet life cycle
+
+        -Mounting
+           - constructor - define state and bind this keyword
+           - render  - return Jsx, HTML task which will be shown on the screen - this is must
+           - componentDidMount() - it is being called after 1st render
+           - componentWillMount() -Deprecated
+
+        -Updating
+            - getDeriveStateFromProps()
+            - ShouldComponentUpdate() - true/false
+            - render() - update the screen
+            - ComponentDidUpdate() - same working as componentDidMount
+
+        -Unmounting
+          - componentWillUnmount - this.setState(
+            render is not being called after this
+          )
+          close some connections, subscription, some events etc
