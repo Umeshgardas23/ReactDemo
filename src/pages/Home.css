@@ -7,3 +7,6 @@
     flex-wrap: wrap;
     gap: 1rem;
 }
+.home{
+    border:2px solid chocolate
+}

@@ -1,7 +1,9 @@
 import React from "react";
+import "./Home.css"
 class Home extends React.Component {
   constructor() {
     super();
+    this.getData=this.getData.bind(this)
     this.state = {
       heading: "Hello",
       image: "https://th.wallhaven.cc/small/l8/l8x1pr.jpg",
@@ -10,7 +12,7 @@ class Home extends React.Component {
     console.log("Constructor called");
   }
 
-  getData = () => {
+  getData() {
     this.setState({
       heading: "How are you",
       image: "https://th.wallhaven.cc/small/6d/6dryw6.jpg",
@@ -36,6 +38,7 @@ class Home extends React.Component {
 
   // Mounting
   componentDidMount() {
+    const getData = fetch("https://jsonplaceholder.typicode.com/posts");
     console.log("componentDidMount called");
   }
 
@@ -51,9 +54,8 @@ class Home extends React.Component {
     console.log("Render called");
     return (
       <>
-        <div>
+        <div className="home">
           {this.state.heading}
-
           <img src={this.state.image} alt="Landscape" />
           <button onClick={this.getData}>Click</button>
         </div>
