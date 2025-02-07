@@ -1,10 +1,12 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 // Components
 import Test from "./Test";
 
 // Styles
 import "./About.css";
+import { Helmet } from "react-helmet";
+import Counter from "../components/Counter";
 
 const About = () => {
   const firstname = "John";
@@ -32,11 +34,29 @@ const About = () => {
   //  expression in jsx
 
   const [toggle, setToggle] = useState(false);
+  const [name, setName] = useState("umseh");
+
+  useEffect(() => {
+    console.log("initial called");
+
+    return () => {
+      console.log("component unmounted");
+    };
+  }, [name]);
 
   return (
     <div className={age < 20 ? container : ""}>
+      <Helmet>
+        <meta charSet="utf-8" />
+        <title>About</title>
+        <link rel="canonical" href="http://localhost:3000/" />
+      </Helmet>
       {toggle ? <Test /> : ""}
       <button onClick={() => setToggle(!toggle)}>Toggle</button>
+      {name}
+      <button onClick={() => setName("umesh")}>Change name</button>
+
+      <Counter />
     </div>
   );
 };

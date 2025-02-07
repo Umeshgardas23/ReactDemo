@@ -1,3 +1,8 @@
+npx create-react-app appname - provide the template to create the react app
+
+npm init - it will generate your for package.json file then we can add and create your own files of your own (No templates)
+
+
 <!-- 2 types of component -->
 <!-- Class Component -->
 <!--
@@ -27,29 +32,29 @@ function add(a,b){
 add(kapil,vishwadip)
 <!-- Function Component -->
 
-  constructor(props) {
-    super(props);
-    this.getData = this.getData.bind(this);
-    this.state = {
-      heading: "Hello",
-      para: "para",
-      fullname: props.name + " " + "Choudhari",
-      age: props.age - 2,
-      arr: [
-        { id: 10, name: "Pratik" },
-        { id: 20, name: "Prajwal" },
-      ],
-    };
-  }
+constructor(props) {
+super(props);
+this.getData = this.getData.bind(this);
+this.state = {
+heading: "Hello",
+para: "para",
+fullname: props.name + " " + "Choudhari",
+age: props.age - 2,
+arr: [
+{ id: 10, name: "Pratik" },
+{ id: 20, name: "Prajwal" },
+],
+};
+}
 
-  getData() {
-    console.log("button clicked");
-    console.log(this);
-    console.log(this.state.firstname);
-    console.log(this.state.age);
-    console.log("Before changed", this.state.heading);
-    const oldArr = this.state.arr;
-    oldArr.push({ id: 30, name: "Prathm" });
+getData() {
+console.log("button clicked");
+console.log(this);
+console.log(this.state.firstname);
+console.log(this.state.age);
+console.log("Before changed", this.state.heading);
+const oldArr = this.state.arr;
+oldArr.push({ id: 30, name: "Prathm" });
 
     this.setState({
       heading: "How are you",
@@ -57,7 +62,9 @@ add(kapil,vishwadip)
     });
 
     console.log("After changed", this.state.heading);
-  }
+
+}
+
  <h1>{this.state.heading}</h1>
         <h3>{this.state.para}</h3>
         <p>{this.state.fullname} </p>
@@ -71,60 +78,59 @@ add(kapil,vishwadip)
         <Data1 fullname={this.state.fullname} updateage={this.state.age} />
         <Data2 name={this.props.name} age={this.props.age} />
 
-
 // import React from "react";
 // import Item from "../components/Item";
 // import "./Home.css"
 // import "../components/Item.css";
 // const Home = () => {
-//   const data = [
-//     {
-//       id: 1,
-//       img: "https://th.wallhaven.cc/small/ex/exmxpw.jpg",
-//     },
-//     {
-//       id: 2,
-//       img: "https://th.wallhaven.cc/small/yx/yxdvjx.jpg",
-//     },
-//     {
-//       id: 3,
-//       img: "https://th.wallhaven.cc/small/rr/rrl1kj.jpg",
-//     },
-//     {
-//       id: 2,
-//       img: "https://th.wallhaven.cc/small/yx/yxdvjx.jpg",
-//     },
-//     {
-//       id: 3,
-//       img: "https://th.wallhaven.cc/small/rr/rrl1kj.jpg",
-//     },
-//     {
-//       id: 2,
-//       img: "https://th.wallhaven.cc/small/yx/yxdvjx.jpg",
-//     },
-//     {
-//       id: 3,
-//       img: "https://th.wallhaven.cc/small/rr/rrl1kj.jpg",
-//     },
-//     {
-//       id: 2,
-//       img: "https://th.wallhaven.cc/small/yx/yxdvjx.jpg",
-//     },
-//     {
-//       id: 3,
-//       img: "https://th.wallhaven.cc/small/rr/rrl1kj.jpg",
-//     },
-//   ];
+// const data = [
+// {
+// id: 1,
+// img: "https://th.wallhaven.cc/small/ex/exmxpw.jpg",
+// },
+// {
+// id: 2,
+// img: "https://th.wallhaven.cc/small/yx/yxdvjx.jpg",
+// },
+// {
+// id: 3,
+// img: "https://th.wallhaven.cc/small/rr/rrl1kj.jpg",
+// },
+// {
+// id: 2,
+// img: "https://th.wallhaven.cc/small/yx/yxdvjx.jpg",
+// },
+// {
+// id: 3,
+// img: "https://th.wallhaven.cc/small/rr/rrl1kj.jpg",
+// },
+// {
+// id: 2,
+// img: "https://th.wallhaven.cc/small/yx/yxdvjx.jpg",
+// },
+// {
+// id: 3,
+// img: "https://th.wallhaven.cc/small/rr/rrl1kj.jpg",
+// },
+// {
+// id: 2,
+// img: "https://th.wallhaven.cc/small/yx/yxdvjx.jpg",
+// },
+// {
+// id: 3,
+// img: "https://th.wallhaven.cc/small/rr/rrl1kj.jpg",
+// },
+// ];
 
-//   return (
-//     <>
-//       <div className="items">
-//         {data.map((item) => {
-//           return <Item key={item.id} image={item.img} />;
-//         })}
-//       </div>
-//     </>
-//   );
+// return (
+// <>
+// <div className="items">
+// {data.map((item) => {
+// return <Item key={item.id} image={item.img} />;
+// })}
+// </div>
+// </>
+// );
 // };
 
         <!-- Life Cycle Methods -->
@@ -147,3 +153,40 @@ add(kapil,vishwadip)
             render is not being called after this
           )
           close some connections, subscription, some events etc
+
+
+React hooks
+
+<!-- useState -->
+<!-- useEffect -->
+
+context API
+
+- useContext(16.5), useReducer (redux library)
+
+-why we need, what is use, how to use it
+
+-parent to child(props)
+
+App.js(this.props.name) -> product.js(props.name) -> Cars.js(props.name) -> Car.js(props.name)
+                                                  -> Shoes.js(props.name) ->Shoe.js(prop.name)
+
+
+Context API -> state management concept/tool/library where there is a single source of data to each component                                               
+
+
+  {/* <MyProvider>
+        <CounterProvider>
+          <div className="app" style={{ height: "100vh", width: "100%" }}>
+            <Router>
+              <Navbar />
+              <Routes>
+                <Route path="/" element={<Home />} />
+                <Route path="/about" element={<About />} />
+                <Route path="/contact" element={<Contact />} />
+                <Route path="/test" element={<Test />} />
+              </Routes>
+            </Router>
+          </div>
+        </CounterProvider>
+      </MyProvider> */}

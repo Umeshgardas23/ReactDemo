@@ -1,5 +1,6 @@
 import React from "react";
 import Item from "../components/Item";
+import { Helmet } from "react-helmet";
 
 const Contact = () => {
   const data = [
@@ -18,6 +19,11 @@ const Contact = () => {
   ];
   return (
     <div>
+      <Helmet>
+        <meta charSet="utf-8" />
+        <title>Contact</title>
+        <link rel="canonical" href="http://localhost:3000/" />
+      </Helmet>
       {data.map((item) => {
         return <Item key={item.id} image={item.img} />;
       })}

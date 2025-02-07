@@ -1,39 +1,50 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import "./Test.css";
+import { CounterContext } from "../context/CounterContext";
+import MyContext from "../context/MyContext";
 
 const Test = () => {
+  const { counter, increment, decrement } = useContext(CounterContext);
+
   // useState
   //  to define state
   // one params, default value of the state
   // const [currentvalue, updatevalue] = useState("intialvalue");
 
   const [count, setCount] = useState(0);
-  
-  // useEffect
+  const [name, setName] = useState("Firstname");
+
+  // useEffect - side effects of component
   useEffect(() => {
     console.log("Test component is mount");
-  },[]);
-
-  useEffect(() => {
     return () => {
       console.log("Test component is unmount");
     };
-  },[]);
+  }, []);
 
+  // useEffect
   useEffect(() => {
     console.log(count + " is updated");
-  },[count]);
+    console.log(name + " is updated");
+  }, [count, name]);
+
+  // useContext
+  // - context API implementation
+  // by using this method we can access global state
+  // consumer logic can be used better in class components rather than function components
+  // in functional components better to use hooks method i.e useContext
+
+  // benefits of using useContext
+  // Wrapping not required
+  // no need of subscriber
+  //  less complexity
+  // better readability of code
 
   return (
     <div className="testcontainer">
-      <p>{count}</p>
-      <button onClick={() => setCount(count + 1)}>increase cound</button>
-      <button onClick={() => setCount(count - 1)}>decrease cound</button>
-      <ul>
-        <li>1</li>
-        <li>2</li>
-        <li>3</li>
-      </ul>
+      <h2>Counter :{counter} </h2>
+      <button onClick={increment}>Increment</button>
+      <button onClick={decrement}>Decrement</button>
     </div>
   );
 };

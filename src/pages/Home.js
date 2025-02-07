@@ -1,9 +1,13 @@
 import React from "react";
-import "./Home.css"
+import "./Home.css";
+import Product from "../components/Product";
+import { Helmet } from "react-helmet";
+import Counter2 from "../components/Counter2";
+
 class Home extends React.Component {
-  constructor() {
-    super();
-    this.getData=this.getData.bind(this)
+  constructor(props) {
+    super(props);
+    this.getData = this.getData.bind(this);
     this.state = {
       heading: "Hello",
       image: "https://th.wallhaven.cc/small/l8/l8x1pr.jpg",
@@ -17,7 +21,12 @@ class Home extends React.Component {
       heading: "How are you",
       image: "https://th.wallhaven.cc/small/6d/6dryw6.jpg",
     });
-  };
+  }
+  // Mounting
+  componentDidMount() {
+    const getData = fetch("https://jsonplaceholder.typicode.com/posts");
+    console.log("componentDidMount called");
+  }
   // fetch some data from API ,external source
   // Updating
   ShouldComponentUpdate = () => {
@@ -36,12 +45,6 @@ class Home extends React.Component {
     console.log(data);
   };
 
-  // Mounting
-  componentDidMount() {
-    const getData = fetch("https://jsonplaceholder.typicode.com/posts");
-    console.log("componentDidMount called");
-  }
-
   // Unmounting
   componentWillUnmount = () => {
     console.log("componentWillUnmount called");
@@ -55,9 +58,17 @@ class Home extends React.Component {
     return (
       <>
         <div className="home">
-          {this.state.heading}
+          <Helmet>
+            <meta charSet="utf-8" />
+            <title>Home</title>
+            <link rel="canonical" href="http://localhost:3000/" />
+          </Helmet>
+         {/*  {this.state.heading}
           <img src={this.state.image} alt="Landscape" />
-          <button onClick={this.getData}>Click</button>
+
+          <button onClick={this.getData}>Click</button> */}
+          {/* <Product /> */}
+          <Counter2 />
         </div>
       </>
     );

@@ -1,10 +1,15 @@
 .navbar {
   padding: 20px;
-  display: flex;
   gap: 10px;
   background-color: #5a5a5a;
+  display: flex;
+  justify-content: space-between;
 }
 .navbar a {
   text-decoration: none;
   color: white;
+}
+.navlinks {
+  display: flex;
+  gap: 10px;
 }
